@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+}
+
+img {
+  width: 125px;
+}
+
+.board-row {
+  display: flex;
+  height: 150px;
+  width: 150 * 3px;
+  margin: auto;
+
+  &:nth-child(2) .board-cell {
+    border-top: 3px solid black;
+    border-bottom: 3px solid black;
+  }
+
+  .board-cell {
+    flex: 1 1 150px;
+    text-align: center;
+
+    &:nth-child(2) {
+      border-left: 3px solid black;
+      border-right: 3px solid black;
+    }
+  }
+}
