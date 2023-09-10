@@ -8,11 +8,11 @@ const SymbolFactory = (source, altInfo) => {
 
 const GameBoard = (() => {
   const xSymbol = SymbolFactory(
-    'assets/x.svg',
+    'assets/img/x.svg',
     "Player X's move in Tic Tac Toe"
   );
   const oSymbol = SymbolFactory(
-    'assets/o.svg',
+    'assets/img/o.svg',
     "Player O's move in Tic Tac Toe"
   );
   const restartButton = document.querySelector('.restart-btn');
@@ -88,7 +88,7 @@ const Game = (() => {
   };
 
   const declareDraw = () => {
-    messageBoard.textContent = `It's a Draw`;
+    messageBoard.textContent = `It's a Draw!`;
   };
 
   const changeTurn = () => {

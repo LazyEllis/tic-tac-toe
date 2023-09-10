@@ -1,9 +1,78 @@
+@font-face {
+  font-family: "urw_din_arabic_condmedium";
+  src: url("assets/fonts/urw_din_arabic_cond_medium-webfont.woff2")
+      format("woff2"),
+    url("assets/fonts/urw_din_arabic_cond_medium-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+$primary-bg-color: #28246e;
+$primary-txt-color: #fcfeff;
+
+$secondary-bg-color: #151043;
+$secondary-txt-color: #7ad0f8;
+$primary-icon-color: invert(23%) sepia(73%) saturate(2932%) hue-rotate(250deg)
+  brightness(101%) contrast(95%);
+
+$tertiary-bg-color: #7239e5;
+$tertiary-txt-color: #29eac6;
+$secondary-icon-color: invert(78%) sepia(67%) saturate(454%) hue-rotate(106deg)
+  brightness(93%) contrast(97%);
+
 * {
   box-sizing: border-box;
 }
 
+:root {
+  font-size: 32px;
+}
+
+body,
+h1 {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "urw_din_arabic_condmedium", sans-serif;
+  text-align: center;
+  background-color: $primary-bg-color;
+
+  .header {
+    background-color: $secondary-bg-color;
+    color: $secondary-txt-color;
+  }
+
+  .main-content {
+    color: $primary-txt-color;
+
+    > div {
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+  }
+}
+
 img {
   width: 125px;
+  pointer-events: none;
+  filter: $primary-icon-color;
+}
+
+button {
+  background-color: $secondary-bg-color;
+  color: $secondary-txt-color;
+  padding: 5px 10px;
+  font-family: inherit;
+  font-size: inherit;
+  outline: 1px solid $secondary-txt-color;
+  border: none;
+
+  &:hover {
+    background-color: $tertiary-bg-color;
+    color: $tertiary-txt-color;
+  }
 }
 
 .board-row {
@@ -12,18 +81,36 @@ img {
   width: 150 * 3px;
   margin: auto;
 
-  &:nth-child(2) .board-cell {
-    border-top: 3px solid black;
-    border-bottom: 3px solid black;
-  }
-
   .board-cell {
     flex: 1 1 150px;
     text-align: center;
+    background-color: $secondary-bg-color;
+    border: 1px solid $secondary-txt-color;
 
-    &:nth-child(2) {
-      border-left: 3px solid black;
-      border-right: 3px solid black;
+    &:hover {
+      background-color: $tertiary-bg-color;
+
+      img {
+        filter: $secondary-icon-color;
+      }
+    }
+  }
+}
+
+// Make the board and its images responsive on mobile screens
+@media (max-width: 460px) {
+  img {
+    width: 75px;
+    pointer-events: none;
+  }
+
+  .board-row {
+    height: 100px;
+    width: 100 * 3px;
+    margin: auto;
+
+    .board-cell {
+      flex: 1 1 100px;
     }
   }
 }
